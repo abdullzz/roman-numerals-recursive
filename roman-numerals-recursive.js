@@ -1,5 +1,4 @@
 function toRoman(input) {
-    const iStr = input.toString();
     const tabel = [
         ['I', 1], ['IV', 4], ['V', 5], ['IX', 9], ['X', 10],
         ['XL', 40], ['L', 50], ['XC', 90], ['C', 100], ['CD', 400],
@@ -8,23 +7,19 @@ function toRoman(input) {
     ];
 
     let res = "";
-    while (input > 0) {
+    if (input === 0){
+        return res;
+    } else {
         for (let i = 0; i < tabel.length; i++) {
             if (tabel[i][1] > input) {
-                res += tabel[i - 1][0];
-                input -= tabel[i - 1][1];
-                break;
+                return (res += tabel[i - 1][0]) + toRoman(input -= tabel[i - 1][1]);
             } else if (tabel[i][1] === input) {
-                res += tabel[i][0];
-                input -= tabel[i][1];
-                break;
+                return (res += tabel[i][0]) + toRoman(input -= tabel[i][1]);
             } else if (input > tabel[tabel.length - 1][1]) {
-                res += tabel[tabel.length - 1][0];
-                input -= tabel[tabel.length - 1][1];
+                return (res += tabel[tabel.length - 1][0]) + toRoman(input -= tabel[tabel.length - 1][1]);
             }
         }
     }
-    return res;
 }
 
 console.log("My totally sweet testing script\n");
