@@ -19,15 +19,14 @@ function toRoman(num) {
   if (num < 1) {
     return "";
   }
-  var temp = "";
+  var result = "";
   for (let i = 0; i < romanVal.length; i++) {
     if (num >= romanVal[i]) {
-      temp += romanNum[i];
+      result += romanNum[i];
       num -= romanVal[i];
-      break;
+      return result + toRoman(num);
     }
   }
-  return temp + toRoman(num);
 }
 
 //test case
