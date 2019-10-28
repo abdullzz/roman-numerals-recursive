@@ -1,7 +1,11 @@
 function toRoman (number) {
-  // if (number <= 0 || number > 3000) {
-  //   return 'Can only input number from 1 to 3000'
-  // }
+  if (number < 0) {
+    return 'number cant be minus'
+  }
+
+  if (number > 3000) {
+    return 'number cant be more than 3000'
+  }
 
   if (number === 0) {
     return ''
